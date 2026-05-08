@@ -5,6 +5,7 @@ import {
   redirect,
   useFetcher,
   useNavigate,
+  useNavigation,
 } from "react-router";
 import type { Route } from "./+types/post";
 
@@ -36,8 +37,16 @@ export async function clientAction({ params }: Route.ClientActionArgs) {
 export default function Post({ loaderData }: Route.ComponentProps) {
   const fetcher = useFetcher();
   const navigate = useNavigate();
+  const navigation = useNavigation();
+
+  const isNavigating = Boolean(navigation.location);
 
   const isDeleted = fetcher.data?.isDeleted;
+  const isDeleting = fetcher.state !== "idle";
+
+  if (isNavigating) {
+    return <p>Really Cool Spinner is There Trust me!</p>;
+  }
 
   return (
     <div>
@@ -52,6 +61,7 @@ export default function Post({ loaderData }: Route.ComponentProps) {
       <fetcher.Form method="delete">
         <button type="submit">Delete</button>
       </fetcher.Form>
+      {isDeleting && <p>Deleting post...</p>}
     </div>
   );
 }
