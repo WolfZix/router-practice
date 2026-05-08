@@ -2,13 +2,11 @@
   "name": "router-practice",
   "private": true,
   "type": "module",
-  "homepage": "https://WolfZix.github.io/router-practice/",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "deploy": "npm run build &&gh-pages -d build/client"
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "7.15.0",
