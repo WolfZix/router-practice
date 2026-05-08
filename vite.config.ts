@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter()],
-  base: "/react-router-vite-tailwind-starter/",
+  base: "/router-practice/",
   resolve: {
     tsconfigPaths: true,
   },
